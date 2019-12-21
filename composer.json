@@ -1,0 +1,16 @@
+{
+    "name": "priceminer/php-scrapers",
+    "description": "Micro-Services PHP Scrapers",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jiří Zapletal",
+            "email": "zapletal@wakers.cz"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "nette/mail": "^3.1",
+        "latte/latte": "^2.5"
+    }
+}
