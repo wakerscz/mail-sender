@@ -48,9 +48,9 @@ foreach ($uniqueEmails as $email)
 
         try {
             $mailer->send($message);
-            echo "Succeeded: {$email} | Delay: " . (microtime(true) - $sendingTime) . 's' . PHP_EOL;
+            echo "Succeeded: {$email} | Timeout: " . (microtime(true) - $sendingTime) . 's' . PHP_EOL;
         } catch (\Exception $exception) {
-            echo "Error: {$email} | Delay: ". (microtime(true) - $sendingTime) . 's' .
+            echo "Error: {$email} | Timeout: ". (microtime(true) - $sendingTime) . 's' .
                 " | Exception: {$exception->getMessage()}" . PHP_EOL;
         }
     }//);
