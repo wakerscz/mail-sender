@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f95da763769c28377bc0b6850229412",
+    "content-hash": "163187c5012d745381ec8f1430cbe0f5",
     "packages": [
         {
             "name": "latte/latte",
@@ -403,6 +403,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.1"
+    },
     "platform-dev": []
 }

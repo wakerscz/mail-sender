@@ -1,6 +1,6 @@
 {
-    "name": "priceminer/php-scrapers",
-    "description": "Micro-Services PHP Scrapers",
+    "name": "wakers/mail-sender",
+    "description": "The easiest way to send e-mail campaign with Async PHP",
     "type": "project",
     "authors": [
         {
@@ -10,6 +10,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
+        "php": "^7.1",
         "nette/mail": "^3.1",
         "latte/latte": "^2.5",
         "spatie/async": "^1.1"
