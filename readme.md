@@ -3,10 +3,10 @@ The easiest way how to send e-mail campaign with **Async PHP** and **tracking op
 
 ## How to setup your campaign
 1. Duplicate `./sender/config.example.php`, rename to `config.php` and configure it.
-1. Duplicate `./sender/pf-2020/` and edit files in this folder.
+1. Duplicate `./sender/vzorova-kampan/` and edit files in this folder.
 1. Upload your campaign folder to web server.
 
-## How to send all emails
+## How to send tons of emails
 
 ### With PHP CLI
 1. Run `php ./sender/send.php` to send all messages.
