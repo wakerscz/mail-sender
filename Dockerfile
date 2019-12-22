@@ -1,4 +1,4 @@
-FROM php:7.1.7-cli
+FROM php:7.4.1-cli
 WORKDIR /in-docker
 
 RUN apt-get update && \
