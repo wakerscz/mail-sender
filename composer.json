@@ -11,6 +11,7 @@
     "minimum-stability": "stable",
     "require": {
         "nette/mail": "^3.1",
-        "latte/latte": "^2.5"
+        "latte/latte": "^2.5",
+        "spatie/async": "^1.1"
     }
 }

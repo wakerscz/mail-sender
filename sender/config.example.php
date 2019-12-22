@@ -4,7 +4,7 @@
     'smtp' => [
         'host' => 'smtp.gmail.com',
         'username' => 'zapletal@wakers.cz',
-        'password' => '****',
+        'password' => '*****',
         'secure' => 'ssl'
     ]
 ];

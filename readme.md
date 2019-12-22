@@ -1,8 +1,8 @@
 # PHP Mail campaign sender
 
 ## How to setup your campaign
-1. Edit `./sender/config.php` to configure your SMTP & current campaign.
-1. Duplicate `./sender/pf-2020/` and edit files in your folder.
+1. Duplicate `./sender/config.example.php`, rename to `config.php` and configure it.
+1. Duplicate `./sender/pf-2020/` and edit files in this folder.
 1. Upload your campaign folder to web server.
 
 ## How to send all emails

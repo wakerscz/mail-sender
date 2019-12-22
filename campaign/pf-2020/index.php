@@ -20,14 +20,18 @@ $receiver = isset($_GET['receiver']) ? $_GET['receiver'] : NULL;
 $imageName = isset($_GET['image']) ? $_GET['image'] : NULL;
 $imagePath = 'images/' . $imageName;
 
-if (!$imageName) {
+if (!$imageName)
+{
     $params = require __DIR__ . '/campaign-config.php';
-    (new Latte\Engine)->render(__DIR__ . '/message.latte', $params + [
-        'receiver' => $receiver
-    ]);
 
-} else if (file_exists(__DIR__ . '/' . $imagePath)) {
-
+    (new Latte\Engine)
+        ->render(__DIR__ . '/message.latte', $params + [
+                'receiver' => $receiver
+            ]
+        );
+}
+else if (file_exists(__DIR__ . '/' . $imagePath))
+{
     if ($receiver)
     {
         $user_agent = $_SERVER['HTTP_USER_AGENT'];
@@ -51,5 +55,3 @@ if (!$imageName) {
     fpassthru($fp);
     exit;
 }
-
-
