@@ -9,14 +9,14 @@ The easiest way how to send e-mail campaign with **Async PHP** and **tracking op
 ## How to send tons of emails
 
 ### With PHP CLI
-1. Install [PHP CLI](http://www.php-cli.com/) >= v.7.1 with [PCNTL](https://www.php.net/manual/en/book.pcntl.php) extensions.
+1. Install [PHP CLI](http://www.php-cli.com/) >= v.7.1 with [PCNTL](https://www.php.net/manual/en/book.pcntl.php) extension.
 1. Run `php ./sender/send.php` to send all e-mail messages.
 
 ### With Docker
 1. Install [Docker for desktop](https://www.docker.com/products/docker-desktop).
 1. Run `./send.sh` to send all e-mail messages.
 
-## How to Open Rate monitoring
-- You can monitor the open rate stats after running the campaign.
+## How to Open-Rate monitoring
+- You can monitor the open-rate stats after running the campaign.
 - Just open remote folder `./campaign/*/stats/open-rate.txt`.
-- Be careful with GDPR (mail addresses are visible in your public folder).
+- But be careful with GDPR (mail addresses are visible in your public folder).
