@@ -8,7 +8,7 @@
 ## How to send all emails
 
 ### With PHP CLI
-1. Run `php ./sender/index.php` to send all messages..
+1. Run `php ./sender/index.php` to send all messages.
 
 ### With Docker
 1. Install [docker for desktop](https://www.docker.com/products/docker-desktop).
