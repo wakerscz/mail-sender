@@ -1,5 +1,5 @@
 # PHP Mail - campaign sender
-The easiest way how to send e-mail campaign with **Async PHP**.
+The easiest way how to send e-mail campaign with **Async PHP** and **tracking open-rate**.
 
 ## How to setup your campaign
 1. Duplicate `./sender/config.example.php`, rename to `config.php` and configure it.
