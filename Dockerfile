@@ -20,4 +20,4 @@ RUN composer dump-autoload --no-scripts --no-dev --optimize
 
 COPY ./campaign /in-docker/campaign
 COPY ./sender /in-docker/sender
-CMD ["php", "/in-docker/sender/index.php"]
+CMD ["php", "/in-docker/sender/send.php"]

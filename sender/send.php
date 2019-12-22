@@ -23,18 +23,19 @@ $params = require __DIR__ . '/../campaign/' . $config['current_campaign'] . '/ca
 $emails = require __DIR__ . '/../campaign/' . $config['current_campaign'] . '/email-list.php';
 $uniqueEmails = array_unique($emails);
 
-echo "Max execution time: " . ini_get('max_execution_time'). PHP_EOL;
-echo "E-mails: " . count($emails) . PHP_EOL;
-echo "Unique e-mails: " . count($uniqueEmails) . PHP_EOL;
+echo "Max execution time: " . (ini_get('max_execution_time') == 0 ? 'OK' : 'FAILED') . PHP_EOL;
+echo "Supported async: " . (Pool::isSupported() ? 'OK' : 'FAILED') . PHP_EOL;
+echo "E-mails in queue: " . count($emails) . PHP_EOL;
+echo "Unique e-mails in queue: " . count($uniqueEmails) . PHP_EOL;
 
 $mailer = new SmtpMailer($config['smtp']);
 $latte = new Latte\Engine;
-$pool = Pool::create();
+//$pool = Pool::create();
 
-// Send messages in Loop
+// Send messages in Async loop
 foreach ($uniqueEmails as $email)
 {
-    $pool[] = async(function () use ($latte, $mailer, $config, $params, $sendingTime, $email)
+    //$pool[] = async(function () use ($latte, $mailer, $config, $params, $sendingTime, $email)
     {
         $path = __DIR__ . '/../campaign/' . $config['current_campaign'] . '/message.latte';
         $htmlBody = $latte->renderToString($path,$params + ['receiver' => $email]);
@@ -47,14 +48,14 @@ foreach ($uniqueEmails as $email)
 
         try {
             $mailer->send($message);
-            echo "Message sent to {$email} after: " . (microtime(true) - $sendingTime) .'s' . PHP_EOL;
+            echo "Succeeded: {$email} | Delay: " . (microtime(true) - $sendingTime) . 's' . PHP_EOL;
         } catch (\Exception $exception) {
-            echo "Error: {$exception->getMessage()} when sending to {$email} after: "
-                . (microtime(true) - $sendingTime) .'s' . PHP_EOL;
+            echo "Error: {$email} | Delay: ". (microtime(true) - $sendingTime) . 's' .
+                " | Exception: {$exception->getMessage()}" . PHP_EOL;
         }
-    });
+    }//);
 }
 
-await($pool);
+//await($pool);
 
 echo "Execution time: " . (microtime(true) - $sendingTime) .'s' . PHP_EOL;

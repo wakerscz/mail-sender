@@ -8,13 +8,13 @@
 ## How to send all emails
 
 ### With PHP CLI
-1. Run `php ./sender/index.php` to send all messages.
+1. Run `php ./sender/send.php` to send all messages.
 
 ### With Docker
 1. Install [docker for desktop](https://www.docker.com/products/docker-desktop).
-1. Run `./sc.sh` to send all messages.
+1. Run `./send.sh` to send all messages.
 
 ## How to Open Rate monitoring
 - You can monitor the open rate stats after running the campaign.
-- Just open remote folder `./campaign/*/stats/open-stats.txt`.
+- Just open remote folder `./campaign/*/stats/open-rate.txt`.
 - Be careful with GDPR (mail addresses are visible in your public folder).

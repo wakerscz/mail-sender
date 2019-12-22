@@ -1,2 +1,4 @@
 /vendor/
 /sender/config.php
+/campaign/*
+!/campaign/vzorova-kampan
