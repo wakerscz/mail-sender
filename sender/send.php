@@ -62,7 +62,7 @@ foreach ($uniqueEmails as $email) {
 
         // Or print concurrency timeout
         ->timeout(function () use ($email, $startedAt) {
-            echo "Concurrency timeout: {$email} | Timeout: ". (microtime(true) - $startedAt) . 's';
+            echo "Concurrency timeout: {$email} | Timeout: ". (microtime(true) - $startedAt) . 's' . PHP_EOL;
         })
     ;
 }
