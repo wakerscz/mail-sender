@@ -22,17 +22,16 @@ $uniqueEmails = array_unique($emails);
 $startedAt = microtime(true);
 
 // Print PHP settings & email stats
-echo "Max execution time: "         . (ini_get('max_execution_time') == 0 ? 'OK' : 'FAILED') . PHP_EOL;
-echo "Supported async: "            . (Spatie\Async\Pool::isSupported() ? 'OK' : 'FAILED') . PHP_EOL;
-echo "E-mails in queue: "           . count($emails) . PHP_EOL;
-echo "Unique e-mails in queue: "    . count($uniqueEmails) . PHP_EOL;
+echo 'Max execution time: '         . (ini_get('max_execution_time') == 0 ? 'OK' : 'FAILED') . PHP_EOL;
+echo 'Supported async: '            . (Spatie\Async\Pool::isSupported() ? 'OK' : 'FAILED') . PHP_EOL;
+echo 'E-mails in queue: '           . count($emails) . PHP_EOL;
+echo 'Unique e-mails in queue: '    . count($uniqueEmails) . PHP_EOL;
 
 // Create async pool
 $pool = Spatie\Async\Pool::create()->concurrency(100)->timeout(30)->sleepTime(50000);
 
 // Send e-mail via SMTP asynchronously
 foreach ($uniqueEmails as $email) {
-
     $pool
         // Add task
         ->add(function () use ($email, $config, $params) {
@@ -69,4 +68,4 @@ foreach ($uniqueEmails as $email) {
 
 $pool->wait();
 
-echo "Execution time: " . (microtime(true) - $startedAt) .'s' . PHP_EOL;
+echo 'Execution time: ' . (microtime(true) - $startedAt) .'s' . PHP_EOL;
