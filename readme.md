@@ -1,6 +1,8 @@
 # PHP Mail - campaign sender
 The easiest way how to send e-mail campaign with **Async PHP** and **tracking open-rate**.
 
+![example campaign](docs/out.gif)
+
 ## How to setup your campaign
 1. Duplicate `./sender/config.example.php` file, rename it to `config.php` and configure it.
 1. Duplicate `./sender/vzorova-kampan/` folder and edit files in this folder.
@@ -20,3 +22,6 @@ The easiest way how to send e-mail campaign with **Async PHP** and **tracking op
 - You can monitor the open-rate stats after running the campaign.
 - Just open remote folder `./campaign/*/stats/open-rate.txt`.
 - But be careful with GDPR (mail addresses are visible in your public folder).
+
+## How e-mail message can looks like
+![example campaign](docs/vzorova-kampan.png)
