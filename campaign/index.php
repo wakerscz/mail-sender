@@ -51,8 +51,8 @@ else if ($campaignName && file_exists($campaignPath) && file_exists($imageFilePa
             mkdir($statsDir, 0777, TRUE);
         }
 
-        $fp = fopen($statsDir . 'open-rate.txt', 'a+');
-        fwrite($fp, implode(' | ', $metrics));
+        $fp = fopen('nette.safe://' . $statsDir . 'open-rate.txt', 'a+');
+        fwrite($fp, implode(' | ', $metrics) . PHP_EOL);
         fclose($fp);
     }
 
