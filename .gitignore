@@ -1,3 +1,4 @@
+/api/*
 /vendor/
 /sender/config.php
 /campaign/*
