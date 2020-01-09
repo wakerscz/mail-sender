@@ -28,7 +28,7 @@ echo 'E-mails in queue: '           . count($emails) . PHP_EOL;
 echo 'Unique e-mails in queue: '    . count($uniqueEmails) . PHP_EOL;
 
 // Create async pool
-$pool = Spatie\Async\Pool::create()->concurrency(100)->timeout(30)->sleepTime(50000);
+$pool = Spatie\Async\Pool::create()->concurrency(3)->timeout(30)->sleepTime(50000);
 
 // Send e-mail via SMTP asynchronously
 foreach ($uniqueEmails as $email) {
@@ -49,18 +49,33 @@ foreach ($uniqueEmails as $email) {
         })
 
         // Print success
-        ->then(function () use ($email, $startedAt) {
+        ->then(function () use ($email, $startedAt, $config) {
+
+            $fp = fopen('nette.safe://' . __DIR__ . '/../campaign/' . $config['current_campaign'] . '/succeeded.txt', 'a+');
+            fwrite($fp, $email . PHP_EOL);
+            fclose($fp);
+
             echo "Succeeded: {$email} | Timeout: " . (microtime(true) - $startedAt) . 's' . PHP_EOL;
         })
 
         // Or catch exceptions
-        ->catch(function (\Exception $exception) use ($email, $startedAt) {
+        ->catch(function (\Exception $exception) use ($email, $startedAt, $config) {
+
+            $fp = fopen( 'nette.safe://' . __DIR__ . '/../campaign/' . $config['current_campaign'] . '/not-delivered.txt', 'a+');
+            fwrite($fp, $email . PHP_EOL);
+            fclose($fp);
+
             echo "Error: {$email} | Timeout: ". (microtime(true) - $startedAt) . 's' .
                 " | Exception: {$exception->getMessage()}" . PHP_EOL;
         })
 
         // Or print concurrency timeout
-        ->timeout(function () use ($email, $startedAt) {
+        ->timeout(function () use ($email, $startedAt, $config) {
+
+            $fp = fopen('nette.safe://' . __DIR__ . '/../campaign/' . $config['current_campaign'] . '/timeout.txt', 'a+');
+            fwrite($fp, $email . PHP_EOL);
+            fclose($fp);
+
             echo "Concurrency timeout: {$email} | Timeout: ". (microtime(true) - $startedAt) . 's' . PHP_EOL;
         })
     ;
