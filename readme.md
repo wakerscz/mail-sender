@@ -1,6 +1,8 @@
 # PHP Mail - newsletter sender
 The easiest way how to send e-mail newsletter with **Async PHP** and **tracking open-rate**.
 
+**Update 8/14/20:** You can use our [contactio.app](https://www.contactio.app) **it's free and with unlimited contacts**.
+
 ![example campaign](docs/preview.gif)
 
 ## How to setup your newsletter
